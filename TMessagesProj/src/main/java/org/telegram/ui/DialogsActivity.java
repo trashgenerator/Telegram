@@ -303,6 +303,7 @@ public class DialogsActivity extends BaseFragment implements NotificationCenter.
         fragmentView = frameLayout;
         
         listView = new RecyclerListView(context);
+        listView.setPadding(0, 200, 0, 0);
         listView.setVerticalScrollBarEnabled(true);
         listView.setItemAnimator(null);
         listView.setInstantClick(true);
