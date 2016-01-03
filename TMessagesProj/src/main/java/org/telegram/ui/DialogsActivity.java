@@ -23,6 +23,7 @@ import android.content.res.Configuration;
 import android.graphics.Outline;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.MotionEvent;
@@ -303,7 +304,11 @@ public class DialogsActivity extends BaseFragment implements NotificationCenter.
         fragmentView = frameLayout;
         
         listView = new RecyclerListView(context);
-        listView.setPadding(0, 200, 0, 0);
+        DisplayMetrics metrics = new DisplayMetrics();
+        this.getParentActivity().getWindowManager().getDefaultDisplay().getMetrics(metrics);
+        float density = metrics.density;
+        listView.setPadding(0, Math.round(density * 150), 0, 0);
+        listView.setBackgroundResource(R.drawable.catogram_background);
         listView.setVerticalScrollBarEnabled(true);
         listView.setItemAnimator(null);
         listView.setInstantClick(true);
